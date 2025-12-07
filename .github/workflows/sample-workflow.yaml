@@ -12,4 +12,4 @@ jobs:
       - name: Docker build
         run: docker build . -t my-custom-image:01
       - name: Run my custom container
-        run: docker run -d my-custom-image:01
+        run: docker run my-custom-image:01
