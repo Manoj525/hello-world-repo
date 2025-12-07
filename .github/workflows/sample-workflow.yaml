@@ -1,4 +1,4 @@
-name: My Dummy Pipeline
+name: Pipeline from my feature branch
 on:
   workflow_dispatch:
 
@@ -7,9 +7,9 @@ jobs:
     name: Create Docker image
     runs-on: ubuntu-latest
     steps:
-     # - name: Checkout
-     #   uses: actions/checkout@v6.0.1
+      - name: Checkout
+        uses: actions/checkout@v6.0.1
       - name: Docker build
-        run:  |
-          docker run -d -p 8080:80 nginx
-          curl http://localhost:8080
+        run: docker build . -t my-custom-image:01
+      - name: Run my custom container
+        run: docker run -d my-custom-image:01
